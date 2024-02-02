@@ -15,6 +15,437 @@
 */
 
 .page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 98px;
   min-inline-size: 320px;
-  min-block-size: 100dvb;
+  font-family: var(--main-font), sans-serif;
+  font-variation-settings:  'wght' 400;
+  background-color: var(--background-color);
+  color: var(--accent-color);
+  background: var(--background-gradient) center center / cover;
+  background-attachment: fixed;
+}
+
+button {
+  cursor: pointer;
+}
+
+/*Стилизация шапки*/
+.header {
+
+  width: clamp(375px, calc(60% + 4px), calc(696px + 4px));
+  position: relative;
+}
+
+.header__theme-menu {
+  display: flex;
+  flex-direction: column;
+  margin-block-start: 99px;
+  padding-block-start: clamp(110px, 19.5%, 137px);
+  background-color: var(--background-color);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 2px solid var(--accent-color);
+}
+
+.header-logo {
+  font-family: var(--accent-font), fantasy;
+  font-size: clamp(3.0625rem, calc(1.921rem + 3.5vw), 4.0625rem);
+  line-height: 65px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.header_heading {
+  font-family: var(--accent-font), fantasy;
+  font-size: clamp(0.875rem, calc(0.2329rem + 1.8692vw), 1.4375rem);
+  font-weight: 400;
+  line-height: 23px;
+  padding-block-start: clamp(8px, 2vw, 20px);
+  text-transform: uppercase;
+}
+
+.theme-menu__button {
+  font-family: var(--accent-font), fantasy;
+  background: transparent;
+  font-size: 14px;
+  line-height: 14px;
+  border: none;
+  position: relative;
+}
+
+.theme-menu__button:disabled::before {
+  content: '▶';
+  pointer-events: none;
+  position: absolute;
+  left: -13px;
+  bottom: 13px;
+}
+
+.theme-menu__list {
+  gap: 8px;
+  padding-block-start: 23px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+  margin-inline-start: 18px;
+  margin-block-end: 22px;
+}
+
+/*Стилизация карточек*/
+
+.card_list-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-inline: auto;
+  gap: 48px;
+  width: clamp(375px, calc(60% + 4px), calc(696px + 4px));
+}
+
+.card {
+  background-color: var(--background-color);
+  position: relative;
+  border: 2px solid var(--accent-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.main_description-title {
+  font-family: var(--main-font), sans-serif;
+  font-variation-settings:  'wght' 700;
+  font-size: 18px;
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
+  padding-block: 7px;
+}
+
+/*Стилизация изображения*/
+.main_description-image {
+  width: 100%;
+  outline: 2px solid var(--accent-color);
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+/*/Стилизация изображения*/
+
+.card_content {
+  font-family: var(--main-font), sans-serif;
+  margin: 27px;
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  font-variation-settings:  'wght' 400;
+  font-size: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
+}
+
+.card__like-button {
+  font-family: var(--accent-font), fantasy;
+  font-size: 14px;
+  margin-inline-end: 25px;
+  margin-block-end: 1px;
+  width: 130px;
+  height: 38px;
+  background-color: transparent;
+  border: 2px solid var(--accent-color);
+}
+
+/*Лейбл*/
+.label-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  outline: 2px solid var(--accent-color);
+}
+
+.label {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-family: var(--accent-font), fantasy;
+  font-size: 14px;
+  color: var(--accent-color);
+  opacity: 50%;
+  -webkit-text-stroke: thin var(--background-color);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+/*Кнопка оборачивающая иконку*/
+
+.footer-button {
+  font-family: var(--accent-font), fantasy;
+  font-size: 14px;
+  width: 339px;
+  border: 2px solid var(--accent-color);
+  text-align: center;
+  background-color: var(--background-color);
+  margin-block-end: 103px;
+  margin-block-start: 50px;
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 55px;
+}
+
+/* Ховер и изменение состояния между enabled и disabled */
+.theme-menu__button {
+  transition: opacity 0.3s ease;
+}
+
+.theme-menu__button:hover,
+.theme-menu__button:disabled {
+  opacity: 0.6;
+}
+
+.theme-menu__button:disabled {
+  pointer-events: none;
+}
+
+/* Фокус на пункте меню */
+.theme-menu__button:focus {
+  outline: none;
+  opacity: 0.6;
+}
+
+/* Стили для псевдоэлемента в состоянии hover и focus-visible */
+.theme-menu__button::before {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+
+.theme-menu__button:focus-visible::before {
+  transform: scaleX(1);
+  width: 100%;
+}
+
+/* Кнопки Like и «Сохранить на память» */
+
+.card__like-button,
+.footer-button,
+.dialog-button {
+  position: relative;
+  overflow: hidden; /* Скрытие частей элемента, выходящих за границы */
+}
+
+/* Отмена стандартной обводки и добавление тени при фокусе */
+.card__like-button:focus,
+.footer-button:focus,
+.dialog-button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 #000000;
+  transition: box-shadow 0.5s ease;
+}
+
+/* Текст, который перекрашивается постепенно */
+
+.card__like-button::before,
+.footer-button::before,
+.dialog-button::before {
+  background-color: var(--accent-color);
+}
+
+.button__text {
+  position: relative;
+  color: var(--accent-color);
+  transition: color 0.5s ease-in-out;
+  z-index: 1;
+}
+
+.footer-button:hover .button__text,
+.card__like-button:hover .button__text,
+.dialog-button:hover .button__text {
+  color: var(--background-color);
+
+}
+
+/* floppy */
+
+.button__floppy {
+  fill: var(--accent-color);
+  max-width: 21px;
+  width: 100%;
+  z-index: 1;
+  height: auto;
+  display: inline-block;
+  position: relative;
+  mix-blend-mode: normal;
+  transition: fill 0.5s ease-in-out;
+}
+
+.footer-button:hover .button__floppy {
+  fill: var(--background-color);
+  transition: fill 0.5s ease-in-out;
+}
+
+/* Сердце */
+
+.card__icon-button {
+  background: transparent;
+  border: none;
+  margin-block-end: 20px;
+}
+
+.card__button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Dialog */
+
+#dialog-id {
+
+  width: clamp(341px, calc(25vw + 4px), 357px);
+  background: var(--background-color);
+  text-align: center;
+  border: 2px solid var(--accent-color);
+  z-index: 2;
+  padding: 30px;
+}
+
+#dialog-id::backdrop {
+  opacity: 0.75;
+  background-color: #000000;
+}
+
+.dialog-text {
+  font-family: var(--accent-font), fantasy;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  line-height: 21px;
+  font-size: 14px;
+  font-style: normal;
+  width: 234px;
+  text-align: start;
+}
+
+.dialog-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dialog_button-floppy {
+  fill: var(--accent-color);
+  min-width: 39px;
+  min-height: 39px;
+}
+
+.dialog-button {
+  font-family: var(--accent-font), fantasy;
+  font-size: 14px;
+  font-style: normal;
+  color: var(--accent-color);
+  background: transparent;
+  border: 2px solid var(--accent-color);
+  display: flex;
+  width: 100%;
+  height: 38px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-block-start: 30px;
+
+}
+
+.use {
+  transform: scale(1.86);
+
+}
+
+/* фильтры */
+
+.preparation-img {
+  display: block;
+  filter: saturate(200%);
+}
+
+.beginning-img {
+  display: block;
+  filter: sepia(80%);
+}
+
+.hesitation-img {
+  display: block;
+  filter: brightness(150%);
+}
+
+.perfectionism-img {
+  display: block;
+  filter: contrast(200%);
+}
+
+.support-img {
+  display: block;
+  filter: brightness(120%) contrast(150%) grayscale(30%);
+}
+
+.difficult-img {
+  display: block;
+  filter: grayscale(100%);
+}
+
+.concentration-img {
+  display: block;
+  filter: blur(1px);
+}
+
+.experience-img {
+  display: block;
+  filter: opacity(70%);
+}
+
+.stillAhead-img {
+  display: block;
+  filter: hue-rotate(90deg);
+}
+
+/* медиазапрос */
+@media (width <= 375px) {
+
+  .footer-button {
+    padding-block: 15px;
+    height: auto;
+    width: clamp(310px, calc(23.3vw + 4px), calc(25% + 4px));
+  }
+
+  .button__floppy {
+    max-width: 28px;
+  }
+
+  .main_description-title {
+    padding-block: 5px;
+  }
+
+  #dialog-id {
+    padding-block: 30px;
+    padding-inline: 40px;
+  }
+
+}
+
+@supports not ((-webkit-text-stroke: thin #ffffff)) {
+  .label {
+    text-shadow: 2px 2px 0 #f00; /* фоллбэк с использованием text-shadow */
+  }
 }
