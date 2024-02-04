@@ -75,6 +75,7 @@ button {
   line-height: 14px;
   border: none;
   position: relative;
+  text-transform: uppercase;
 }
 
 .theme-menu__button:disabled::before {
@@ -115,6 +116,7 @@ button {
   border: 2px solid var(--accent-color);
   display: flex;
   flex-direction: column;
+  padding-block-end: 25px;
 }
 
 .main_description-title {
@@ -177,10 +179,17 @@ button {
   font-size: 14px;
   color: var(--accent-color);
   opacity: 50%;
-  -webkit-text-stroke: thin var(--background-color);
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
+
+@supports (-text-stroke: 1px solid transparent) or (-webkit-text-stroke: 1px transparent ) {
+  .label {
+    -webkit-text-stroke: thin var(--background-color);
+    -text-stroke: thin var(--background-color);
+    text-shadow: none; /* Сброс тени, если text-stroke поддерживается */
+  }
+}
+
 
 /*Кнопка оборачивающая иконку*/
 
@@ -239,6 +248,7 @@ button {
   width: 100%;
 }
 
+
 /* Кнопки Like и «Сохранить на память» */
 
 .card__like-button,
@@ -252,9 +262,13 @@ button {
 .card__like-button:focus,
 .footer-button:focus,
 .dialog-button:focus {
-  outline: none;
-  box-shadow: 2px 2px 0 #000000;
+  outline: 2px solid transparent;
+  box-shadow: 2px 2px 0 var(--accent-color);
   transition: box-shadow 0.5s ease;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid var(--accent-color);
 }
 
 /* Текст, который перекрашивается постепенно */
@@ -302,8 +316,8 @@ button {
 
 .card__icon-button {
   background: transparent;
-  border: none;
-  margin-block-end: 20px;
+  border: 2px solid transparent;
+  padding: 0;
 }
 
 .card__button {
@@ -313,8 +327,7 @@ button {
 
 /* Dialog */
 
-#dialog-id {
-
+dialog[id] {
   width: clamp(341px, calc(25vw + 4px), 357px);
   background: var(--background-color);
   text-align: center;
@@ -380,12 +393,12 @@ button {
   filter: saturate(200%);
 }
 
-.beginning-img {
+.fromscratch-img {
   display: block;
   filter: sepia(80%);
 }
 
-.hesitation-img {
+.doubt-img {
   display: block;
   filter: brightness(150%);
 }
@@ -400,17 +413,17 @@ button {
   filter: brightness(120%) contrast(150%) grayscale(30%);
 }
 
-.difficult-img {
+.bypass-img {
   display: block;
   filter: grayscale(100%);
 }
 
-.concentration-img {
+.frustrate-img {
   display: block;
   filter: blur(1px);
 }
 
-.experience-img {
+.here-img {
   display: block;
   filter: opacity(70%);
 }
@@ -422,6 +435,10 @@ button {
 
 /* медиазапрос */
 @media (width <= 375px) {
+
+  .header_heading {
+    padding-block-start: clamp(0px, 2vw, 20px);
+  }
 
   .footer-button {
     padding-block: 15px;
