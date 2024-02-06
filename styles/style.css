@@ -88,7 +88,7 @@ button {
 
 .theme-menu__list {
   gap: 8px;
-  padding-block-start: 23px;
+  padding-block-start: 25px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -96,7 +96,7 @@ button {
   justify-content: space-around;
   align-content: center;
   margin-inline-start: 18px;
-  margin-block-end: 22px;
+  margin-block-end: 25px;
 }
 
 /*Стилизация карточек*/
@@ -174,10 +174,11 @@ button {
   justify-content: flex-end;
   position: absolute;
   top: 25px;
-  right: 25px;
+  right: 15px;
   font-family: var(--accent-font), fantasy;
   font-size: 14px;
   color: var(--accent-color);
+  text-shadow: thin var(--background-color);
   opacity: 50%;
   z-index: 1;
 }
@@ -200,8 +201,8 @@ button {
   border: 2px solid var(--accent-color);
   text-align: center;
   background-color: var(--background-color);
-  margin-block-end: 103px;
-  margin-block-start: 50px;
+  margin-block-end: 100px;
+  margin-block-start: 53px;
   margin-inline: auto;
   display: flex;
   flex-wrap: wrap;
@@ -317,7 +318,7 @@ button {
 .card__icon-button {
   background: transparent;
   border: 2px solid transparent;
-  padding: 0;
+  margin-block-end: 20px;
 }
 
 .card__button {
@@ -327,7 +328,7 @@ button {
 
 /* Dialog */
 
-dialog[id] {
+dialog[open] {
   width: clamp(341px, calc(25vw + 4px), 357px);
   background: var(--background-color);
   text-align: center;
@@ -451,12 +452,12 @@ dialog[id] {
   }
 
   .main_description-title {
-    padding-block: 5px;
+    padding-block: 4px 6px;
   }
 
   #dialog-id {
     padding-block: 30px;
-    padding-inline: 40px;
+    padding-inline: 39px;
   }
 
 }
