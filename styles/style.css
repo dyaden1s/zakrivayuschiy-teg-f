@@ -61,10 +61,10 @@ button {
 
 .header_heading {
   font-family: var(--accent-font), fantasy;
-  font-size: clamp(49px, calc(0.2329rem + 1.8692vw), 1.4375rem);
+  font-size: clamp(0.875rem, calc(0.2329rem + 1.8692vw), 1.4375rem);
   font-weight: 400;
   line-height: 23px;
-  height: 23px;
+  height: 43px;
   padding-block-start: clamp(8px, 2vw, 20px);
   text-transform: uppercase;
 }
@@ -113,7 +113,7 @@ button {
   flex-direction: column;
   align-items: center;
   margin-inline: auto;
-  gap: 50px;
+  gap: 52px;
   width: clamp(375px, calc(60% + 4px), calc(696px + 4px));
 }
 
@@ -187,16 +187,15 @@ button {
   font-family: var(--accent-font), fantasy;
   font-size: 14px;
   color: var(--accent-color);
-  text-shadow: thin var(--background-color);
+  text-shadow: 1px 1px 1px var(--background-color);
   opacity: 50%;
   z-index: 1;
 }
 
-@supports (-text-stroke: 1px solid transparent) or (-webkit-text-stroke: 1px transparent ) {
+@supports ((-webkit-text-stroke: 1px var(--background-color)) or (text-stroke: 1px var(--background-color))) {
   .label {
-    -webkit-text-stroke: thin var(--background-color);
-    -text-stroke: thin var(--background-color);
-    text-shadow: none; /* Сброс тени, если text-stroke поддерживается */
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--background-color);
   }
 }
 
@@ -457,8 +456,9 @@ dialog[open] {
 
   .header_heading {
     margin-block-start: clamp(0px, 20px, 20px);
-    line-height: 14px;
+    line-height: 0;
     height: 14px;
+    font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   }
 
   .header-logo{
