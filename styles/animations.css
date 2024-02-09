@@ -76,21 +76,37 @@
     transition: fill 0.3s ease-in-out;
 }
 
-.heart:hover .main-body {
+.main-body {
     fill: var(--accent-color);
-    transition: fill 0.3s ease-in-out;
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.core {
+    fill: var(--accent-color);
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    transition-delay: 0.03s;
+}
+
+.like-icon:hover .main-body {
+    fill: var(--accent-color);
+
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    transition-delay: 0.03s;
 }
 
 .like-icon:hover .core {
     fill: var(--accent-color);
-    transition: fill 0.3s 1s ease-in-out;
-    transition-delay: 0.03s;
+
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
-.like-icon:hover .heart .main-body {
-    fill: var(--accent-color);
-    transition: fill 0.5s 1s ease-in-out;
-}
+
 
 .like-icon:not(.is-liked) .contour {
     fill: var(--accent-color);
