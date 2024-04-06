@@ -4,6 +4,11 @@ import {initialCards} from "./scripts/cards";
 import {createCard, toggleLike, deleteCard} from "./scripts/card";
 import {openPopup, closePopup, closePopupByOverlay} from "./scripts/modal";
 
+import LogoImage from './images/logo.svg';
+import AvatarImage from './images/avatar.jpg';
+
+
+
 
 // @todo: Вывести карточки на страницу
 
@@ -46,6 +51,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const profileTitle = document.querySelector('.profile__title');
     const profileDescription = document.querySelector('.profile__description');
     const placesList = document.querySelector('.places__list');
+    const logoImage = document.querySelector('.header__logo');
+    const avatarImage = document.querySelector('.profile__image');
+
+
+    avatarImage.style.backgroundImage = "url("+AvatarImage+")"
+    logoImage.setAttribute('src', LogoImage)
+    console.log(AvatarImage)
 
     // Обработчик события отправки формы редактирования профиля
     formEdit.addEventListener('submit', function (evt) {
